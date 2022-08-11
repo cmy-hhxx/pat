@@ -2,13 +2,12 @@
 #include <algorithm>
 #include <cstring>
 #include <unordered_map>
-#include <queue>
 
 using namespace std;
 
 const int N = 50;
-int q[N];
 int postorder[N], inorder[N];
+int q[N];
 unordered_map<int, int> l, r, pos;
 int n;
 
@@ -16,6 +15,7 @@ int build(int il, int ir, int pl, int pr)
 {
     int root = postorder[pr];
     int k = pos[root];
+
     if (il < k) l[root] = build(il, k - 1, pl, pl + k - 1 - il);
     if (ir > k) r[root] = build(k + 1, ir, pl + k - il, pr - 1);
 
@@ -36,7 +36,6 @@ void bfs(int root)
 
     cout << q[0];
     for (int i = 1; i <= tt; i ++ ) cout << ' ' << q[i];
-
 }
 
 int main()

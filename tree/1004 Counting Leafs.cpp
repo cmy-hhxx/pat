@@ -5,8 +5,8 @@
 using namespace std;
 
 const int N = 110;
-int h[N], e[N], ne[N], idx;
 int n, m;
+int h[N], e[N], ne[N], idx;
 int ans[N];
 int max_depth;
 
@@ -17,10 +17,10 @@ void add(int a, int b)
 
 void dfs(int u, int depth)
 {
-    if (h[u] == -1) 
+    if (h[u] == -1)
     {
-        ans[depth] ++;
         max_depth = max(max_depth, depth);
+        ans[depth] ++;
         return;
     }
 
@@ -34,10 +34,11 @@ int main()
 
     memset(h, -1, sizeof h);
 
-    while (m -- ) 
+    while (m -- )
     {
         int id, k;
         cin >> id >> k;
+
         while (k -- )
         {
             int son;
